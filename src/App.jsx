@@ -8,20 +8,31 @@ function App() {
   const [message, setMessage] = useState([])
 const [data, setData] = useState([])
 
-  useEffect(() => {
-    const Api = async () => {
-      try {
-        const res = await fetch("https://8chan.moe/arepa/res/83493.json");
-        const data = await res.json();
-        setMessage(data.message)
-        setData(data.posts)
-        console.log(data);
-      } catch (error) {
-        console.error("Error", error);
+useEffect(() => {
+  fetch("https://8chan.moe/arepa/res/90578.json")
+    .then(res => {
+      // Verifica si la respuesta es JSON
+      if (res.headers.get("content-type")?.includes("application/json")) {
+        return res.json();
+      } else {
+        return res.text().then(text => {
+          console.error("Respuesta no es JSON:", text);
+          throw new Error("Respuesta no es JSON");
+        });
       }
-    };
-    Api();
-  }, []);
+    })
+    .then(data => {
+      setMessage(data.message);
+      setData(data.posts);
+      console.log(data);
+    })
+    .catch(error => {
+     
+      console.error("Error:", error);
+    });
+}, []);
+
+
 
 const textH = (item) => {
   // remove patterns from >>00000
