@@ -5,6 +5,10 @@
 #root {
   margin: 0;
   padding: 0;
-  background: #0F172A;
+  /* background-color: #0F172A */
 
+}
+body {
+  height: 100dvh;
+  background: #0F172A;
 }

@@ -8,7 +8,7 @@ function App() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/post/93004")
+    fetch("http://156.255.211.242:8000/post/127093")
       .then(res => res.json())
       .then(data => {
         setMessage(data.posts[0].messageOp);
@@ -34,8 +34,54 @@ function App() {
     textH(allMessages);
   };
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   return (
     <>
+      <main className="h-full bg-[#0F172A]">
       <div className="flex flex-col justify-center items-center pt-10">
         <h1 className="text-white text-6xl mb-5">Post de los Negritos</h1>
         <button 
@@ -73,6 +119,7 @@ function App() {
           </Card>
         ))}
       </div>
+      </main>
     </>
   );
 }
